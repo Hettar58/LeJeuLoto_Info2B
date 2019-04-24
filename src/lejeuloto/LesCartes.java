@@ -14,7 +14,8 @@ import javax.swing.JPanel;
  * @author yann
  */
 public class LesCartes {
-    ArrayList<CarteLoto> al;
+    private ArrayList<CarteLoto> al;
+    private final int nbCartesMax = 2;
     
     public LesCartes(){
         al = new ArrayList<CarteLoto>();
@@ -30,7 +31,11 @@ public class LesCartes {
         }
     }
     
-    public void ajouteCarte(CarteLoto c){ al.add(c);}
+    public void ajouteCarte(CarteLoto c){ 
+        if(al.size() < nbCartesMax){
+            al.add(c);
+        }
+    }
     
     public void retireCarte(CarteLoto c){ al.remove(al.indexOf(c)); }
     

@@ -58,24 +58,24 @@ public class OptionsDlg extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         Center = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        ModeJeuLabel = new javax.swing.JLabel();
         QuineRB = new javax.swing.JRadioButton();
         ButtonGroup1.add(QuineRB);
         DoubleQuineRB = new javax.swing.JRadioButton();
         ButtonGroup1.add(DoubleQuineRB);
         CartonPleinRB = new javax.swing.JRadioButton();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        ConfigCartonLabel = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        ColonnesLabel = new javax.swing.JLabel();
         ColCB = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        NumeroLabel = new javax.swing.JLabel();
         NumTF = new javax.swing.JTextField();
         Message = new javax.swing.JLabel();
         South = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        AnnulerButton = new javax.swing.JButton();
+        ValiderButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -88,8 +88,8 @@ public class OptionsDlg extends javax.swing.JDialog {
 
         jPanel1.setLayout(new java.awt.GridLayout(4, 1));
 
-        jLabel2.setText("Comment voulez vous jouer ?");
-        jPanel1.add(jLabel2);
+        ModeJeuLabel.setText("Comment voulez vous jouer ?");
+        jPanel1.add(ModeJeuLabel);
 
         QuineRB.setText("Quine - Une ligne complète");
         jPanel1.add(QuineRB);
@@ -105,13 +105,13 @@ public class OptionsDlg extends javax.swing.JDialog {
 
         jPanel2.setLayout(new java.awt.GridLayout(4, 1));
 
-        jLabel3.setText("Configuration des cartons");
-        jPanel2.add(jLabel3);
+        ConfigCartonLabel.setText("Configuration des cartons");
+        jPanel2.add(ConfigCartonLabel);
 
         jPanel3.setLayout(new java.awt.GridLayout(1, 2));
 
-        jLabel4.setText("Combien de colonnes ?");
-        jPanel3.add(jLabel4);
+        ColonnesLabel.setText("Combien de colonnes ?");
+        jPanel3.add(ColonnesLabel);
 
         jPanel3.add(ColCB);
 
@@ -119,8 +119,8 @@ public class OptionsDlg extends javax.swing.JDialog {
 
         jPanel4.setLayout(new java.awt.GridLayout(1, 2));
 
-        jLabel5.setText("Combien de numéros ?");
-        jPanel4.add(jLabel5);
+        NumeroLabel.setText("Combien de numéros ?");
+        jPanel4.add(NumeroLabel);
         jPanel4.add(NumTF);
 
         jPanel2.add(jPanel4);
@@ -132,33 +132,33 @@ public class OptionsDlg extends javax.swing.JDialog {
 
         South.setLayout(new java.awt.GridLayout(1, 2));
 
-        jButton1.setText("Annuler");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        AnnulerButton.setText("Annuler");
+        AnnulerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                AnnulerButtonActionPerformed(evt);
             }
         });
-        South.add(jButton1);
+        South.add(AnnulerButton);
 
-        jButton2.setText("Valider");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        ValiderButton.setText("Valider");
+        ValiderButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                ValiderButtonActionPerformed(evt);
             }
         });
-        South.add(jButton2);
+        South.add(ValiderButton);
 
         getContentPane().add(South, java.awt.BorderLayout.SOUTH);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void AnnulerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnnulerButtonActionPerformed
         this.setVisible(false);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_AnnulerButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void ValiderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValiderButtonActionPerformed
         if (QuineRB.isSelected() == true){
             choixOpt = 1;
         }
@@ -170,7 +170,7 @@ public class OptionsDlg extends javax.swing.JDialog {
         }
         nbCol = Integer.parseInt(ColCB.getItemAt(ColCB.getSelectedIndex()));
         
-        System.out.println("output"+NumTF.getText());
+;
         if(NumTF.getText().equals("")){
             Message.setText("Erreur: Valeur manquante");
         }
@@ -184,7 +184,7 @@ public class OptionsDlg extends javax.swing.JDialog {
                 this.dispose();
             }
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_ValiderButtonActionPerformed
 
     public int getChoixOpt() {
         return choixOpt;
@@ -199,23 +199,23 @@ public class OptionsDlg extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AnnulerButton;
     private javax.swing.ButtonGroup ButtonGroup1;
     private javax.swing.JRadioButton CartonPleinRB;
     private javax.swing.JPanel Center;
     private javax.swing.JComboBox<String> ColCB;
+    private javax.swing.JLabel ColonnesLabel;
+    private javax.swing.JLabel ConfigCartonLabel;
     private javax.swing.JRadioButton DoubleQuineRB;
     private javax.swing.JLabel Message;
+    private javax.swing.JLabel ModeJeuLabel;
     private javax.swing.JPanel North;
     private javax.swing.JTextField NumTF;
+    private javax.swing.JLabel NumeroLabel;
     private javax.swing.JRadioButton QuineRB;
     private javax.swing.JPanel South;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton ValiderButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

@@ -130,15 +130,11 @@ public class CarteLoto {
    public void initValeursCarte(){
        
        int nb = 0;
-       boolean alreadyFound = true;
-       int x = 0;
-       int y = 0;
-       int value = 0;
        
        while (nb < nbNumeros){
-            x = (int)(nbLig*Math.random());
-            y = (int)(nbCol*Math.random());
-            value = (int)(1+(valMax-1)*Math.random());
+            int x = (int)(nbLig*Math.random());
+            int y = (int)(nbCol*Math.random());
+            int value = (int)(1+(valMax-1)*Math.random());
 
            if (tab[x][y] == 0){
                 if (!estDans(value, 0)){
@@ -182,6 +178,7 @@ public class CarteLoto {
                break;
            case 3:
                res = getNbLignesPleines() == 3 ? true : false;
+               break;
        }
        return res;
    }

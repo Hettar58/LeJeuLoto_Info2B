@@ -62,7 +62,7 @@
             <Property name="rows" type="int" value="4"/>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel2">
+            <Component class="javax.swing.JLabel" name="ModeJeuLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Comment voulez vous jouer ?"/>
               </Properties>
@@ -100,7 +100,7 @@
             <Property name="rows" type="int" value="4"/>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel3">
+            <Component class="javax.swing.JLabel" name="ConfigCartonLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Configuration des cartons"/>
               </Properties>
@@ -112,7 +112,7 @@
                 <Property name="rows" type="int" value="1"/>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel4">
+                <Component class="javax.swing.JLabel" name="ColonnesLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Combien de colonnes ?"/>
                   </Properties>
@@ -136,7 +136,7 @@
                 <Property name="rows" type="int" value="1"/>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel5">
+                <Component class="javax.swing.JLabel" name="NumeroLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Combien de num&#xe9;ros ?"/>
                   </Properties>
@@ -163,20 +163,20 @@
         <Property name="rows" type="int" value="1"/>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="AnnulerButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Annuler"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AnnulerButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="ValiderButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Valider"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ValiderButtonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

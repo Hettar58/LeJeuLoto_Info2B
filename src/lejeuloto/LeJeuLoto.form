@@ -57,6 +57,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Continuer"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ContinuerMenuItemActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="NewGameMenuItem">
               <Properties>
@@ -316,6 +319,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Arreter"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ArretTirageButtonActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

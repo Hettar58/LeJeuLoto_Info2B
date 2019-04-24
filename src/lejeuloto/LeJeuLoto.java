@@ -220,6 +220,11 @@ public class LeJeuLoto extends javax.swing.JFrame {
         TiragePanel.add(TirageLabel);
 
         ArretTirageButton.setText("Arreter");
+        ArretTirageButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ArretTirageButtonActionPerformed(evt);
+            }
+        });
         TiragePanel.add(ArretTirageButton);
 
         S_East.add(TiragePanel, java.awt.BorderLayout.CENTER);
@@ -270,6 +275,11 @@ public class LeJeuLoto extends javax.swing.JFrame {
         ActionMenu.add(AchatCarteMenuItem);
 
         ContinuerMenuItem.setText("Continuer");
+        ContinuerMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ContinuerMenuItemActionPerformed(evt);
+            }
+        });
         ActionMenu.add(ContinuerMenuItem);
 
         NewGameMenuItem.setText("Nouvelle partie");
@@ -383,7 +393,6 @@ public class LeJeuLoto extends javax.swing.JFrame {
             output = lc.rechCartes(value);
             if (output.getTaille() != 0){
                 found = true;
-                System.out.println(output.getTaille());
                 //Si le numéro a été trouvé dans au moins une carte
             }
         }
@@ -395,7 +404,6 @@ public class LeJeuLoto extends javax.swing.JFrame {
             for (int i = 0; i < lj.getNbJoueur(); i++){
                 Joueur j = lj.getJoueur(i);
                 LesCartes lc = j.getMesCartes();
-                System.out.println(lc.getTaille());
                 CarteLoto cl = lc.getCarte(0);
                 if (cl != null){
                     if (cl.estCartonGagnant(option)){
@@ -433,6 +441,8 @@ public class LeJeuLoto extends javax.swing.JFrame {
         }
         if (demarrage == true){
             TirageButton.setEnabled(true);
+            OptionMenuItem.setEnabled(false);
+            AchatCarteMenuItem.setEnabled(false);
         }
     }//GEN-LAST:event_StartMenuItemActionPerformed
 
@@ -441,7 +451,18 @@ public class LeJeuLoto extends javax.swing.JFrame {
         for (int i = 0; i < lj.getNbJoueur(); i++){
             lj.getJoueur(i).getMesCartes().retireCartes();
         }
+        TirageButton.setEnabled(false);
+        OptionMenuItem.setEnabled(true);
+        AchatCarteMenuItem.setEnabled(true);
     }//GEN-LAST:event_NewGameMenuItemActionPerformed
+
+    private void ArretTirageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ArretTirageButtonActionPerformed
+        TirageButton.setEnabled(false);
+    }//GEN-LAST:event_ArretTirageButtonActionPerformed
+
+    private void ContinuerMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContinuerMenuItemActionPerformed
+        TirageButton.setEnabled(true);
+    }//GEN-LAST:event_ContinuerMenuItemActionPerformed
     
     public void afficheCartes(){
         int cpt = 0;

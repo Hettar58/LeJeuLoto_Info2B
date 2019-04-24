@@ -56,7 +56,6 @@ public class Joueur{
     public boolean acheter(CarteLoto c){
         if (this.solde - c.getPrix() >= 0){
             mesCartes.ajouteCarte(c);
-            System.out.println("Ajout d'une carte");
             this.solde -= c.getPrix();
             return true;
         }
