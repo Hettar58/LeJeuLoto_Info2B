@@ -49,7 +49,12 @@ public class AchatCarteDlg extends javax.swing.JDialog {
         for (int i = 0; i < nbCol; i++){
             for (int j = 0; j < nbLig; j++){
                 JButton jb = (JButton)(Center.getComponent(i+nbCol*j));
-                jb.setText(""+t[j][i]);
+                if (t[j][i] != 0){
+                    jb.setText(""+t[j][i]);
+                }
+                else{
+                    jb.setText("");
+                }
             }
         }
     }

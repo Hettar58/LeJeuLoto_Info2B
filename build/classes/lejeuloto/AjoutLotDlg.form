@@ -2,7 +2,9 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
   <NonVisualComponents>
-    <Component class="javax.swing.ButtonGroup" name="ButtonGroup1">
+    <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroup2">
     </Component>
   </NonVisualComponents>
   <Properties>
@@ -22,7 +24,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,44,0,0,2,76"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,44,0,0,2,-90"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
@@ -36,9 +38,9 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="TitreLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Options du jeu"/>
+            <Property name="text" type="java.lang.String" value="Saisie d&apos;un nouveau lot"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -52,102 +54,116 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
         <Property name="columns" type="int" value="2"/>
-        <Property name="rows" type="int" value="1"/>
+        <Property name="rows" type="int" value="2"/>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="jPanel1">
+        <Container class="javax.swing.JPanel" name="HGPanel">
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
             <Property name="columns" type="int" value="1"/>
-            <Property name="rows" type="int" value="4"/>
+            <Property name="rows" type="int" value="3"/>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="ModeJeuLabel">
+            <Component class="javax.swing.JLabel" name="DescriptifLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Comment voulez vous jouer ?"/>
+                <Property name="text" type="java.lang.String" value="Descriptif"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="QuineRB">
+            <Component class="javax.swing.JLabel" name="CatLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Quine - Une ligne compl&#xe8;te"/>
+                <Property name="text" type="java.lang.String" value="Cat&#xe9;gorie"/>
               </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="ButtonGroup1.add(QuineRB);"/>
-              </AuxValues>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="DoubleQuineRB">
+            <Component class="javax.swing.JLabel" name="NiveauLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Double Quine - Deux lignes compl&#xe8;tes"/>
+                <Property name="text" type="java.lang.String" value="Niveau"/>
               </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="ButtonGroup1.add(DoubleQuineRB);"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="CartonPleinRB">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Carton plein"/>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="ButtonGroup1.add(CartonPleinRB);"/>
-              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel2">
+        <Container class="javax.swing.JPanel" name="HDPanel">
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
             <Property name="columns" type="int" value="1"/>
-            <Property name="rows" type="int" value="4"/>
+            <Property name="rows" type="int" value="3"/>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="ConfigCartonLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Configuration des cartons"/>
-              </Properties>
+            <Component class="javax.swing.JTextField" name="DescriptifTF">
             </Component>
-            <Container class="javax.swing.JPanel" name="jPanel3">
+            <Container class="javax.swing.JPanel" name="CatPanel">
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
                 <Property name="columns" type="int" value="2"/>
                 <Property name="rows" type="int" value="1"/>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="ColonnesLabel">
+                <Component class="javax.swing.JRadioButton" name="BonCadeauRB">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Combien de colonnes ?"/>
+                    <Property name="text" type="java.lang.String" value="Bon cadeau"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="ColCB">
+                <Component class="javax.swing.JRadioButton" name="ObjetRB">
                   <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="0"/>
-                    </Property>
+                    <Property name="text" type="java.lang.String" value="Objet"/>
                   </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="jPanel4">
+            <Container class="javax.swing.JPanel" name="NiveauPanel">
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-                <Property name="columns" type="int" value="2"/>
+                <Property name="columns" type="int" value="3"/>
                 <Property name="rows" type="int" value="1"/>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="NumeroLabel">
+                <Component class="javax.swing.JRadioButton" name="Niveau1RB">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Combien de num&#xe9;ros ?"/>
+                    <Property name="text" type="java.lang.String" value="1"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="NumTF">
+                <Component class="javax.swing.JRadioButton" name="Niveau2RB">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="2"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="Niveau3RB">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="3"/>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="Message">
-            </Component>
           </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="BGPanel">
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="339" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="121" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+        </Container>
+        <Container class="javax.swing.JPanel" name="BDPanel">
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="339" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="121" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
         </Container>
       </SubComponents>
     </Container>
@@ -167,17 +183,11 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Annuler"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AnnulerButtonActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="ValiderButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Valider"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ValiderButtonActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>
