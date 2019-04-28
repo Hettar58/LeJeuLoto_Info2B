@@ -17,6 +17,7 @@ public class LeJeuLoto extends javax.swing.JFrame {
     private int nbCol = 5;
     private int nbNum = 10;
     private LesJoueurs lj; //Objet lesJoueurs contenant les joueurs
+    private LesLots lstL;
     private int[] boules;
     private String historique;
     
@@ -26,6 +27,7 @@ public class LeJeuLoto extends javax.swing.JFrame {
     public LeJeuLoto() {
         boules = new int[CarteLoto.valMax];
         lj = new LesJoueurs(); //on instancie l'objet
+        lstL = new LesLots();
         initComponents(); //on crée les composants de l'interface
         initJoueurs(); //on crée deux joueurs
         initBoules(); //on remplit le tableau des boules avec des 0.
@@ -244,6 +246,11 @@ public class LeJeuLoto extends javax.swing.JFrame {
         AjoutMenu.add(AddJoueurMenuItem);
 
         AddLotMenuItem.setText("Lot");
+        AddLotMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddLotMenuItemActionPerformed(evt);
+            }
+        });
         AjoutMenu.add(AddLotMenuItem);
 
         jMenuBar1.add(AjoutMenu);
@@ -463,6 +470,14 @@ public class LeJeuLoto extends javax.swing.JFrame {
     private void ContinuerMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContinuerMenuItemActionPerformed
         TirageButton.setEnabled(true);
     }//GEN-LAST:event_ContinuerMenuItemActionPerformed
+
+    private void AddLotMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddLotMenuItemActionPerformed
+        AjoutLotDlg dlg = new AjoutLotDlg(this, true);
+        dlg.setVisible(true);
+        /*if (dlg.isOk()){
+            lstL.ajouteLot(dlg.getLot());
+        }*/
+    }//GEN-LAST:event_AddLotMenuItemActionPerformed
     
     public void afficheCartes(){
         int cpt = 0;

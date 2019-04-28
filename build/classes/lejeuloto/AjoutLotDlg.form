@@ -2,9 +2,9 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
   <NonVisualComponents>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
+    <Component class="javax.swing.ButtonGroup" name="CatButtonGroup">
     </Component>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup2">
+    <Component class="javax.swing.ButtonGroup" name="NiveauButtonGroup">
     </Component>
   </NonVisualComponents>
   <Properties>
@@ -101,11 +101,23 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Bon cadeau"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BonCadeauRBActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="CatButtonGroup.add(BonCadeauRB);"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="ObjetRB">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Objet"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ObjetRBActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="CatButtonGroup.add(ObjetRB);"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -120,16 +132,34 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="1"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Niveau1RBActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="NiveauButtonGroup.add(Niveau1RB);"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="Niveau2RB">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="2"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Niveau2RBActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="NiveauButtonGroup.add(Niveau2RB);"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="Niveau3RB">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="3"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Niveau3RBActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="NiveauButtonGroup.add(Niveau3RB);"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -183,11 +213,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Annuler"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AnnulerButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="ValiderButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Valider"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ValiderButtonActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

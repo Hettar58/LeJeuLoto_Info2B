@@ -5,18 +5,28 @@
  */
 package lejeuloto;
 
+import javax.swing.JComboBox;
+
 /**
  *
  * @author yannt
  */
 public class AjoutLotDlg extends javax.swing.JDialog {
-
+    private boolean validated;
+    private Lot l;
+    private int niveau;
+    private String type;
+    private JComboBox ValeurCB;
     /**
      * Creates new form AjoutLotDlg
      */
     public AjoutLotDlg(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        validated = false;
+        niveau = 0;
+        type = "";
+        ValeurCB = null;
     }
 
     /**
@@ -28,8 +38,8 @@ public class AjoutLotDlg extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
+        CatButtonGroup = new javax.swing.ButtonGroup();
+        NiveauButtonGroup = new javax.swing.ButtonGroup();
         North = new javax.swing.JPanel();
         TitreLabel = new javax.swing.JLabel();
         Center = new javax.swing.JPanel();
@@ -80,9 +90,21 @@ public class AjoutLotDlg extends javax.swing.JDialog {
         CatPanel.setLayout(new java.awt.GridLayout(1, 2));
 
         BonCadeauRB.setText("Bon cadeau");
+        CatButtonGroup.add(BonCadeauRB);
+        BonCadeauRB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BonCadeauRBActionPerformed(evt);
+            }
+        });
         CatPanel.add(BonCadeauRB);
 
         ObjetRB.setText("Objet");
+        CatButtonGroup.add(ObjetRB);
+        ObjetRB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ObjetRBActionPerformed(evt);
+            }
+        });
         CatPanel.add(ObjetRB);
 
         HDPanel.add(CatPanel);
@@ -90,12 +112,30 @@ public class AjoutLotDlg extends javax.swing.JDialog {
         NiveauPanel.setLayout(new java.awt.GridLayout(1, 3));
 
         Niveau1RB.setText("1");
+        NiveauButtonGroup.add(Niveau1RB);
+        Niveau1RB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Niveau1RBActionPerformed(evt);
+            }
+        });
         NiveauPanel.add(Niveau1RB);
 
         Niveau2RB.setText("2");
+        NiveauButtonGroup.add(Niveau2RB);
+        Niveau2RB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Niveau2RBActionPerformed(evt);
+            }
+        });
         NiveauPanel.add(Niveau2RB);
 
         Niveau3RB.setText("3");
+        NiveauButtonGroup.add(Niveau3RB);
+        Niveau3RB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Niveau3RBActionPerformed(evt);
+            }
+        });
         NiveauPanel.add(Niveau3RB);
 
         HDPanel.add(NiveauPanel);
@@ -133,9 +173,19 @@ public class AjoutLotDlg extends javax.swing.JDialog {
         South.setLayout(new java.awt.GridLayout(1, 2));
 
         AnnulerButton.setText("Annuler");
+        AnnulerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AnnulerButtonActionPerformed(evt);
+            }
+        });
         South.add(AnnulerButton);
 
         ValiderButton.setText("Valider");
+        ValiderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ValiderButtonActionPerformed(evt);
+            }
+        });
         South.add(ValiderButton);
 
         getContentPane().add(South, java.awt.BorderLayout.SOUTH);
@@ -143,11 +193,53 @@ public class AjoutLotDlg extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void AnnulerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnnulerButtonActionPerformed
+        this.validated = false;
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_AnnulerButtonActionPerformed
+
+    private void ValiderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValiderButtonActionPerformed
+        this.l = new Lot();
+        this.l.setDescriptif(DescriptifTF.getText());
+        this.l.setNiveau(niveau);
+        this.l.setType(type);
+        if (type == "Bon cadeau"){
+            this.l.setValeur(ValeurCB.getSelectedIndex());
+        }
+        else{
+            this.l.setIcone(icone);
+        }
+    }//GEN-LAST:event_ValiderButtonActionPerformed
+
+    private void BonCadeauRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BonCadeauRBActionPerformed
+        type = "Bon cadeau";
+        ValeurCB = new JComboBox();
+        
+    }//GEN-LAST:event_BonCadeauRBActionPerformed
+
+    private void ObjetRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ObjetRBActionPerformed
+        type = "Objet";
+    }//GEN-LAST:event_ObjetRBActionPerformed
+
+    private void Niveau1RBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Niveau1RBActionPerformed
+        niveau = 1;
+    }//GEN-LAST:event_Niveau1RBActionPerformed
+
+    private void Niveau2RBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Niveau2RBActionPerformed
+        niveau = 2;
+    }//GEN-LAST:event_Niveau2RBActionPerformed
+
+    private void Niveau3RBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Niveau3RBActionPerformed
+        niveau = 3;
+    }//GEN-LAST:event_Niveau3RBActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AnnulerButton;
     private javax.swing.JPanel BDPanel;
     private javax.swing.JPanel BGPanel;
     private javax.swing.JRadioButton BonCadeauRB;
+    private javax.swing.ButtonGroup CatButtonGroup;
     private javax.swing.JLabel CatLabel;
     private javax.swing.JPanel CatPanel;
     private javax.swing.JPanel Center;
@@ -158,6 +250,7 @@ public class AjoutLotDlg extends javax.swing.JDialog {
     private javax.swing.JRadioButton Niveau1RB;
     private javax.swing.JRadioButton Niveau2RB;
     private javax.swing.JRadioButton Niveau3RB;
+    private javax.swing.ButtonGroup NiveauButtonGroup;
     private javax.swing.JLabel NiveauLabel;
     private javax.swing.JPanel NiveauPanel;
     private javax.swing.JPanel North;
@@ -165,7 +258,5 @@ public class AjoutLotDlg extends javax.swing.JDialog {
     private javax.swing.JPanel South;
     private javax.swing.JLabel TitreLabel;
     private javax.swing.JButton ValiderButton;
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
     // End of variables declaration//GEN-END:variables
 }
