@@ -13,28 +13,30 @@ import javax.swing.JPanel;
  * @author yann
  */
 public class LeJeuLoto extends javax.swing.JFrame {
-    private int option;
-    private int nbCol = 5;
-    private int nbNum = 10;
+    private int option; //entier contenant le nombre de lignes pour gagner
+    private int nbCol; //entier contenant le nombre de colonnes d'une carte
+    private int nbNum; //entier contenant le nombre de numéros d'une carte
     private LesJoueurs lj; //Objet lesJoueurs contenant les joueurs
-    private LesLots lstL;
-    private int[] boules;
-    private String historique;
+    private LesLots lstL; //Objet contenant tous les lots de la partie
+    private int[] numeros; //tableau contenant les numéros tirées
+    private String historique; //String contenant les numéros tirés
     
     /**
      * Creates new form Frame
      */
     public LeJeuLoto() {
-        boules = new int[CarteLoto.valMax];
+        numeros = new int[CarteLoto.valMax]; //le tableau est initialisé de taille 90
         lj = new LesJoueurs(); //on instancie l'objet
-        lstL = new LesLots();
+        lstL = new LesLots(); //on instancie l'objet
         initComponents(); //on crée les composants de l'interface
         initJoueurs(); //on crée deux joueurs
         initBoules(); //on remplit le tableau des boules avec des 0.
-        afficheCartes();
-        TirageButton.setEnabled(false);
-        historique = "-";
-        option = 1;
+        afficheCartes(); //on affiche les cartes des joueurs
+        TirageButton.setEnabled(false); //on désactive le bouton pour tirage
+        historique = "-"; //on met l'historique a vide
+        option = 1; //1 ligne en valeur par défaut
+        nbNum = 10; //10 numéros en valeur par défaut
+        nbCol = 5; //5 colonnes en valeur par défaut
     }
     
     public void initJoueurs(){
@@ -55,27 +57,38 @@ public class LeJeuLoto extends javax.swing.JFrame {
     
     public void initBoules(){
         for (int i = 0; i < CarteLoto.valMax; i++){
-            boules[i] = 0;
+            //pour chaque case du tableau
+            numeros[i] = 0;
+            //on met la case a 0 comme le numéro n'a pas été tiré
         }
     }
     
     public void updateButtons(){
         if (lj.getJoueur(0) != null){
-            //si le joueur 1 existe
-            buttonJ1.setBackground(lj.getJoueur(0).getCouleur());
-            //on change la couleur du bouton comme étant celle stockée par le joueur 
-            buttonJ1.setText(lj.getJoueur(0).getPseudo());
+            //si le joueur existe
+            //on change la couleur du bouton comme étant celle stockée par le joueur
             //on change le texte du bouton comme étant le pseudo du joueur
+            buttonJ1.setBackground(lj.getJoueur(0).getCouleur()); 
+            buttonJ1.setText(lj.getJoueur(0).getPseudo());
         }
         if (lj.getJoueur(1) != null){
+            //si le joueur existe
+            //on change la couleur du bouton comme étant celle stockée par le joueur
+            //on change le texte du bouton comme étant le pseudo du joueur
             buttonJ2.setBackground(lj.getJoueur(1).getCouleur());
             buttonJ2.setText(lj.getJoueur(1).getPseudo());
         }
         if (lj.getJoueur(2) != null){
+            //si le joueur existe
+            //on change la couleur du bouton comme étant celle stockée par le joueur
+            //on change le texte du bouton comme étant le pseudo du joueur
             buttonJ3.setBackground(lj.getJoueur(2).getCouleur());
             buttonJ3.setText(lj.getJoueur(2).getPseudo());
         }
         if (lj.getJoueur(3) != null){
+            //si le joueur existe
+            //on change la couleur du bouton comme étant celle stockée par le joueur
+            //on change le texte du bouton comme étant le pseudo du joueur
             buttonJ4.setBackground(lj.getJoueur(3).getCouleur());
             buttonJ4.setText(lj.getJoueur(3).getPseudo());
         }
@@ -305,11 +318,15 @@ public class LeJeuLoto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void OptionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OptionMenuItemActionPerformed
-        OptionsDlg dlg = new OptionsDlg(this, true, false, 5, 8);
-        dlg.setVisible(true);
-        nbCol = dlg.getNbCol();
-        nbNum = dlg.getNbNum();
-        option = dlg.getChoixOpt();
+        //si on clique sur l'item de menu Option
+        OptionsDlg dlg = new OptionsDlg(this, true, false, nbCol, nbNum);
+        //on crée une fenêtre popup en lui passant les paramètres de la partie
+        dlg.setVisible(true); //on affiche la popup
+        //une fois qu'elle est fermée
+        nbCol = dlg.getNbCol(); //on recupere le nombre de colonnes 
+        nbNum = dlg.getNbNum(); //on recupere le nombre de numeros
+        option = dlg.getChoixOpt(); //on recupere le nombre de lignes pour gagner
+        //on modifie le JLabel lié en conséquence
         if (option == 1){
             OptionLabel.setText("Option choisie: Quine");
         }
@@ -347,7 +364,7 @@ public class LeJeuLoto extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonJ1ActionPerformed
 
     private void buttonJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonJ2ActionPerformed
-        if (lj.getJoueur(1) != null){ //Si Le joueur 1 existe
+        if (lj.getJoueur(1) != null){ //Si Le joueur 2 existe
             //on crée une Fenêtre de dialogue affichant ses attributs.
             VisuJoueurDlg dlg = new VisuJoueurDlg(this, true, lj.getJoueur(1));
             dlg.setVisible(true); //on affiche a fenêtre de dialogue
@@ -355,7 +372,7 @@ public class LeJeuLoto extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonJ2ActionPerformed
 
     private void buttonJ3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonJ3ActionPerformed
-        if (lj.getJoueur(2) != null){ //Si Le joueur 1 existe
+        if (lj.getJoueur(2) != null){ //Si Le joueur 3 existe
             //on crée une Fenêtre de dialogue affichant ses attributs.
             VisuJoueurDlg dlg = new VisuJoueurDlg(this, true, lj.getJoueur(2));
             dlg.setVisible(true); //on affiche a fenêtre de dialogue
@@ -363,7 +380,7 @@ public class LeJeuLoto extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonJ3ActionPerformed
 
     private void buttonJ4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonJ4ActionPerformed
-        if (lj.getJoueur(3) != null){ //Si Le joueur 1 existe
+        if (lj.getJoueur(3) != null){ //Si Le joueur 4 existe
             //on crée une Fenêtre de dialogue affichant ses attributs.
             VisuJoueurDlg dlg = new VisuJoueurDlg(this, true, lj.getJoueur(3));
             dlg.setVisible(true); //on affiche a fenêtre de dialogue
@@ -386,10 +403,10 @@ public class LeJeuLoto extends javax.swing.JFrame {
         do{
             value = (int)(1+Math.random() * (CarteLoto.valMax - 1));
             
-        }while (boules[value] == 1);
+        }while (numeros[value] == 1);
         
         TirageLabel.setText(""+value);
-        boules[value] = 1;
+        numeros[value] = 1;
         historique = historique + ", "+ value;
         HistoTextArea.setText(historique);
         
@@ -411,13 +428,14 @@ public class LeJeuLoto extends javax.swing.JFrame {
             for (int i = 0; i < lj.getNbJoueur(); i++){
                 Joueur j = lj.getJoueur(i);
                 LesCartes lc = j.getMesCartes();
-                CarteLoto cl = lc.getCarte(0);
-                if (cl != null){
-                    if (cl.estCartonGagnant(option)){
-                    gagnants.ajouteJoueur(lj.getJoueur(i));
-                }
-                }
-                
+                for (int j_ = 0; j_ < lc.getTaille(); j_++){
+                    CarteLoto cl = lc.getCarte(j_);
+                    if (cl != null){
+                        if (cl.estCartonGagnant(option)){
+                            gagnants.ajouteJoueur(lj.getJoueur(i));
+                        }
+                    }
+                }    
             }
             if (gagnants.getNbJoueur() > 0){
                 if (gagnants.getNbJoueur() < 2){
@@ -455,12 +473,21 @@ public class LeJeuLoto extends javax.swing.JFrame {
 
     private void NewGameMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewGameMenuItemActionPerformed
         historique = "-";
+        HistoTextArea.setText(historique);
+        TirageLabel.setText("");
+        initBoules();
         for (int i = 0; i < lj.getNbJoueur(); i++){
             lj.getJoueur(i).getMesCartes().retireCartes();
         }
+        for (int i = 0; i < Center.getComponentCount(); i++){
+            JPanel jp = (JPanel)(Center.getComponent(i));
+            jp.removeAll();
+        }
+        Center.repaint();
         TirageButton.setEnabled(false);
         OptionMenuItem.setEnabled(true);
         AchatCarteMenuItem.setEnabled(true);
+        
     }//GEN-LAST:event_NewGameMenuItemActionPerformed
 
     private void ArretTirageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ArretTirageButtonActionPerformed
@@ -510,6 +537,7 @@ public class LeJeuLoto extends javax.swing.JFrame {
         }
         this.pack();
     }
+    
     
     /**
      * @param args the command line arguments

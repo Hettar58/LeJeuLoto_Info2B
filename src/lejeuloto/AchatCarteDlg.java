@@ -162,6 +162,7 @@ public class AchatCarteDlg extends javax.swing.JDialog {
         if (jc.getMesCartes().getTaille() == 2){
             JoueurLabel.setText("Vous avez déjà deux cartes");
             Acheter.setEnabled(false);
+            
         }else{
             JoueurLabel.setText(jc.getPseudo()+" dispose de "+jc.getSolde());
             Acheter.setEnabled(true);
@@ -171,14 +172,14 @@ public class AchatCarteDlg extends javax.swing.JDialog {
     private void AcheterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AcheterActionPerformed
         if (jc.acheter(cc) && jc.getMesCartes().getTaille() < 2){
             JoueurLabel.setText(jc.getPseudo()+" dispose de "+jc.getSolde());
-            cc = new CarteLoto(nbCol, nbNum);
-            afficheCarte();
             achat = true;
         }
         else{
             JoueurLabel.setText("Solde insuffisant ou nombre de cartes max. atteint");
             Acheter.setEnabled(false);
         }
+        cc = new CarteLoto(nbCol, nbNum);
+        afficheCarte();
     }//GEN-LAST:event_AcheterActionPerformed
 
     private void AutreChoixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AutreChoixActionPerformed

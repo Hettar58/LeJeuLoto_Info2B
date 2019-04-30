@@ -5,7 +5,13 @@
  */
 package lejeuloto;
 
-import javax.swing.JComboBox;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.JFileChooser;
 
 /**
  *
@@ -16,7 +22,7 @@ public class AjoutLotDlg extends javax.swing.JDialog {
     private Lot l;
     private int niveau;
     private String type;
-    private JComboBox ValeurCB;
+    private Image icone;
     /**
      * Creates new form AjoutLotDlg
      */
@@ -26,7 +32,7 @@ public class AjoutLotDlg extends javax.swing.JDialog {
         validated = false;
         niveau = 0;
         type = "";
-        ValeurCB = null;
+
     }
 
     /**
@@ -58,6 +64,8 @@ public class AjoutLotDlg extends javax.swing.JDialog {
         Niveau3RB = new javax.swing.JRadioButton();
         BGPanel = new javax.swing.JPanel();
         BDPanel = new javax.swing.JPanel();
+        ValeurCB = new javax.swing.JComboBox<>();
+        ParcourirButton = new javax.swing.JButton();
         South = new javax.swing.JPanel();
         AnnulerButton = new javax.swing.JButton();
         ValiderButton = new javax.swing.JButton();
@@ -155,16 +163,17 @@ public class AjoutLotDlg extends javax.swing.JDialog {
 
         Center.add(BGPanel);
 
-        javax.swing.GroupLayout BDPanelLayout = new javax.swing.GroupLayout(BDPanel);
-        BDPanel.setLayout(BDPanelLayout);
-        BDPanelLayout.setHorizontalGroup(
-            BDPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 339, Short.MAX_VALUE)
-        );
-        BDPanelLayout.setVerticalGroup(
-            BDPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 121, Short.MAX_VALUE)
-        );
+        BDPanel.setLayout(new java.awt.GridLayout(2, 1));
+
+        BDPanel.add(ValeurCB);
+
+        ParcourirButton.setText("Parcourir");
+        ParcourirButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ParcourirButtonActionPerformed(evt);
+            }
+        });
+        BDPanel.add(ParcourirButton);
 
         Center.add(BDPanel);
 
@@ -205,7 +214,7 @@ public class AjoutLotDlg extends javax.swing.JDialog {
         this.l.setNiveau(niveau);
         this.l.setType(type);
         if (type == "Bon cadeau"){
-            this.l.setValeur(ValeurCB.getSelectedIndex());
+            this.l.setValeur(0);
         }
         else{
             this.l.setIcone(icone);
@@ -214,12 +223,15 @@ public class AjoutLotDlg extends javax.swing.JDialog {
 
     private void BonCadeauRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BonCadeauRBActionPerformed
         type = "Bon cadeau";
-        ValeurCB = new JComboBox();
+        ValeurCB.setVisible(true);
+        ParcourirButton.setVisible(false);
         
     }//GEN-LAST:event_BonCadeauRBActionPerformed
 
     private void ObjetRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ObjetRBActionPerformed
         type = "Objet";
+        ValeurCB.setVisible(false);
+        ParcourirButton.setVisible(true);
     }//GEN-LAST:event_ObjetRBActionPerformed
 
     private void Niveau1RBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Niveau1RBActionPerformed
@@ -233,6 +245,23 @@ public class AjoutLotDlg extends javax.swing.JDialog {
     private void Niveau3RBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Niveau3RBActionPerformed
         niveau = 3;
     }//GEN-LAST:event_Niveau3RBActionPerformed
+
+    private void ParcourirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ParcourirButtonActionPerformed
+        JFileChooser jfc = new JFileChooser();
+        if (jfc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
+            File f = jfc.getSelectedFile();
+            try {
+                icone = ImageIO.read(f);
+                System.out.println(icone.toString());
+                BGPanel = new PanneauImage(icone);
+                BGPanel.repaint();
+            } catch (IOException ex) {
+                Logger.getLogger(AjoutLotDlg.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("Erreur de lecture du fichier");
+            }
+            
+        }
+    }//GEN-LAST:event_ParcourirButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AnnulerButton;
@@ -255,8 +284,10 @@ public class AjoutLotDlg extends javax.swing.JDialog {
     private javax.swing.JPanel NiveauPanel;
     private javax.swing.JPanel North;
     private javax.swing.JRadioButton ObjetRB;
+    private javax.swing.JButton ParcourirButton;
     private javax.swing.JPanel South;
     private javax.swing.JLabel TitreLabel;
+    private javax.swing.JComboBox<String> ValeurCB;
     private javax.swing.JButton ValiderButton;
     // End of variables declaration//GEN-END:variables
 }

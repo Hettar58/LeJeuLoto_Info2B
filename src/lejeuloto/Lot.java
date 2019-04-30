@@ -5,7 +5,7 @@
  */
 package lejeuloto;
 
-import javax.swing.ImageIcon;
+import java.awt.Image;
 
 /**
  *
@@ -15,10 +15,10 @@ public class Lot {
     private String descriptif;
     private int niveau;
     private String type;
-    private ImageIcon icone; //variable définie si c'est un objet
+    private Image icone; //variable définie si c'est un objet
     private int valeur; // variable définie si c'est un bon cadeau
 
-    public Lot(String descriptif, int niveau, String type, ImageIcon icone, int valeur) {
+    public Lot(String descriptif, int niveau, String type, Image icone, int valeur) {
         this.descriptif = descriptif;
         this.niveau = niveau;
         this.type = type;
@@ -66,11 +66,11 @@ public class Lot {
         this.type = type;
     }
 
-    public ImageIcon getIcone() {
+    public Image getIcone() {
         return icone;
     }
 
-    public void setIcone(ImageIcon icone) {
+    public void setIcone(Image icone) {
         this.icone = icone;
     }
 

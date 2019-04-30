@@ -121,7 +121,7 @@ public class VisuJoueurDlg extends javax.swing.JDialog {
         jLabel3.setText(lejoueur.getPseudo());
         jPanel4.setBackground(lejoueur.getCouleur());
         jLabel6.setText(""+lejoueur.getSolde());
-        jTextArea1.setText("Aucun lot gagné");
+        jTextArea1.setText(lejoueur.getMesLots().toString());
         jButton1.setIcon(lejoueur.getPhoto());
     }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

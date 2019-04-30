@@ -36,5 +36,17 @@ public class LesLots {
     public void retireLot(Lot l){ al.remove(al.indexOf(l)); }
     public void retireLot(int index){al.remove(index);}
     
-    
+    public String toString(){
+        String res = "";
+        if (al.size() > 0){
+            res += "Lots: ";
+            for (int i = 0; i < al.size(); i++){
+                res += "\n" + al.get(i).toString();
+            }
+        }
+        else{
+            res = "Aucun lot obtenu";
+        }
+        return res;
+    }
 }
